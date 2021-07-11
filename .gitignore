@@ -1,0 +1,8 @@
+node_modules/
+public/images
+public/tmp
+auth.json
+site-config.json
+preview.html
+./index.html
+./edit.html

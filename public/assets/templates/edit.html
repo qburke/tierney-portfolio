@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio edit page based off the album template by Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="Quin Burke">
+    <title>Edit</title>
+
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    
+<header>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>Edit</strong>
+        </a>
+      <a href="#" class="navbar-brand d-flex align-items-center" onclick="previewChanges()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        Preview
+      </a>
+      <a href="#" class="navbar-brand d-flex align-items-center" onclick="uploadChanges()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+        </svg>
+        Upload
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="py-5 container">
+    <form>
+      <div class="form-group row">
+        <label for="inputSiteTitle" class="col-sm-2 col-form-label">Site Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputSiteTitle" placeholder="Title">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputAboutTitle" class="col-sm-2 col-form-label">About Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputAboutTitle" placeholder="About Title">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="aboutTextArea" class="col-sm-2 col-form-label">About Text</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" id="aboutTextArea" rows="3"></textarea>
+        </div>
+      </div>
+      <fieldset class="form-group row">
+        <div class="col-sm-2">Social</div>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="twitterCheck">
+            <label class="form-check-label" for="twitterCheck">
+              Twitter
+            </label>
+            <input type="text" class="form-control" id="twitterInput" placeholder="Link">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="facebookCheck">
+            <label class="form-check-label" for="facebookCheck">
+              Facebook
+            </label>
+            <input type="text" class="form-control" id="facebookInput" placeholder="Link">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="instagramCheck">
+            <label class="form-check-label" for="instagramCheck">
+              Instagram
+            </label>
+            <input type="text" class="form-control" id="instagramInput" placeholder="Link">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="githubCheck">
+            <label class="form-check-label" for="githubCheck">
+              GitHub
+            </label>
+            <input type="text" class="form-control" id="githubInput" placeholder="Link">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="linkedinCheck">
+            <label class="form-check-label" for="linkedinCheck">
+              LinkedIn
+            </label>
+            <input type="text" class="form-control" id="linkedinInput" placeholder="Link">
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div id = "cardsContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="thumbnailFile">Thumbnail</label>
+                  <input type="file" class="form-control-file" name="thumbnailFile">
+                  <label for="imageFile">Full Image</label>
+                  <input type="file" class="form-control-file" name="imageFile">
+                </div>
+                <div class="form-group">
+                  <label for="imageTitle0">Title</label>
+                  <input type="text" class="form-control" name="imageTitle">
+                </div>
+                <div class="form-group">
+                  <label for="imageDescription">Description</label>
+                  <textarea class="form-control" name="imageDescription" rows="3"></textarea>
+                </div>
+              </form>
+              <button type="button" onclick="deleteCard(this)" class="btn btn-sm btn-outline-secondary">Delete</button>
+            </div>
+          </div>
+        </div>
+        <div id="adderCard" class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <button type="button" onclick="newCard()" class="btn btn-sm btn-outline-secondary">New</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+      function newCard() {
+        var cardsList = document.getElementById("cardsContainer").children;
+        var lastCard = cardsList[cardsList.length-2];
+        var clonedCard = lastCard.cloneNode(true);
+        clonedCard.querySelector('input[name="thumbnailFile"]').value = "";
+        clonedCard.querySelector('input[name="imageFile"]').value = "";
+        clonedCard.querySelector('input[name="imageTitle"]').value = "";
+        clonedCard.querySelector('textarea[name="imageDescription"]').value = "";
+        document.getElementById("adderCard").before(clonedCard);
+      }
+
+      function deleteCard(e) {
+        if(document.getElementById("cardsContainer").children.length > 2) {
+          e.parentElement.parentElement.parentElement.remove();
+        }
+      }
+
+      function compileJSON() {
+        var socials = ["twitter", "facebook", "instagram", "github", "linkedin"].map(
+          x => {
+            if (document.getElementById(x+"Check").checked) {
+              return { "name" : x, "link" : document.getElementById(x+"Input").value }
+            } else {
+              return { "name" : x, "link" : null };
+            }
+          }
+        );
+        var rawCards = document.getElementById("cardsContainer").children;
+        var cards = [];
+        for (let i = 0; i < rawCards.length-1; i++) {
+            let x = rawCards[i];
+            cards.push(
+                {
+                  "thumbnailName" : getFilenameFromInput(x.querySelector('input[name="thumbnailFile"]')),
+                  "imageName" : getFilenameFromInput(x.querySelector('input[name="imageFile"]')),
+                  "title" : x.querySelector('input[name="imageTitle"]').value,
+                  "description" : x.querySelector('textarea[name="imageDescription"]').value
+                }
+              );
+        }
+        return {
+          "siteTitle" : document.getElementById("inputSiteTitle").value,
+          "aboutTitle" : document.getElementById("inputAboutTitle").value,
+          "aboutText" : document.getElementById("aboutTextArea").value,
+          "socials" : socials,
+          "cards" : cards
+        };
+      }
+
+      function getFilenameFromInput(e) {
+        try {
+          return e.files.item(0).name;
+        } catch {
+          return null;
+        }
+      }
+
+      function getFileFromInput(e) {
+        try {
+          return e.files.item(0);
+        } catch {
+          return null;
+        }
+      }
+
+      function downloadCurrent() {
+        // TODO
+      }
+
+      function previewChanges() {
+        let token = sessionStorage.getItem('token');
+        uploadImages(true);
+        var json = JSON.stringify(compileJSON());
+        fetch("/preview?token="+token, {
+          method: 'POST',
+          body: json,
+          headers: { "Content-Type": "application/json", "Accept":"text/html" },
+          credentials: 'same-origin'
+        }).then(res => {
+            window.open("/preview?token="+token); 
+        });
+      }
+
+      function uploadImages(tmp) {
+        let token = sessionStorage.getItem('token');
+        let mode = (tmp ? 'tmp' : 'main');
+        let formData = new FormData();
+        var rawCards = document.getElementById("cardsContainer").children;
+        var cards = [];
+        for (let i = 0; i < rawCards.length-1; i++) {
+            let thm = rawCards[i].querySelector('input[name="thumbnailFile"]');
+            let img = rawCards[i].querySelector('input[name="imageFile"]');
+            formData.append(mode + '-' + 'thumb', getFileFromInput(thm));
+            formData.append(mode + '-' + 'full', getFileFromInput(img));
+        }
+        fetch('/upload-images?token='+token+'&mode='+mode, {method: "POST", body: formData});
+      }
+
+      function uploadChanges() {
+        let token = sessionStorage.getItem('token');
+        uploadImages(false);
+        var json = JSON.stringify(compileJSON());
+        fetch("/update?token="+token, {
+          method: 'POST',
+          body: json,
+          headers: { "Content-Type": "application/json", "Accept":"text/html" },
+          credentials: 'same-origin'
+        }).then(res => {
+            window.open("/"); 
+        });
+      }
+
+    </script>
+      
+  </body>
+</html>
