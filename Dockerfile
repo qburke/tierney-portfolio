@@ -16,5 +16,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 3000
+ENV PORT=3000
+ENV PASSWORD=CHANGE_ME
+EXPOSE PORT
 CMD [ "node", "server.js" ]

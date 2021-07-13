@@ -1,7 +1,6 @@
 const express = require('express');
 const bkfd2Password = require("pbkdf2-password");
 const fs = require('fs');
-const prompt = require('prompt-sync')({sigint: true});
 const multer  = require('multer')
 const UIDGenerator = require('uid-generator');
 const { config, send } = require('process');
@@ -82,7 +81,7 @@ if (fs.existsSync(authPath)) {
     if(passHash === "" || passSalt === "")
         throw Error("No editor password set.");
 } else {
-    const password = prompt('Set editor password: ');
+    const password = process.env.PASSWORD;
     let opts = {
         password: password
     };
@@ -236,7 +235,7 @@ app.get('/preview', authenticate, function(req, res) {
     res.sendFile('preview.html', { root: __dirname });
 });
 
-app.listen(3000);
+app.listen(process.env.PORT);
 
 function generateHtml(meta, imgRoot) {
     var cards = '';
